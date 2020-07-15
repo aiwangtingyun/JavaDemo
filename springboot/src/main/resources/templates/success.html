@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+    <h1>成功!</h1>
+    <div  th:id="${hello}" th:class="${hello}" th:text="${hello}"></div>
+    <hr/>
+    <div th:text="转义内容 + ${hello}"></div>
+    <div th:utext="不转义内容 + ${hello}"></div>
+    <hr/>
+    <!--每次遍历会生成一个 <h4> 标签-->
+    <h4 th:text="${user}" th:each="user:${users}"></h4>
+    <hr/>
+    <h4>
+        <span th:each="user:${users}"> [[${user}]] </span>
+    </h4>
+</body>
+</html>
