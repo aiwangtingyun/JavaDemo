@@ -7,12 +7,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="redis" />
-        <module name="jdbc" />
         <module name="springboot" />
+        <module name="activemq" />
         <module name="foundation" />
+        <module name="jdbc" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
+      <module name="activemq" target="1.8" />
       <module name="foundation" target="1.8" />
       <module name="jdbc" target="1.8" />
       <module name="MavenSpring" target="1.8" />

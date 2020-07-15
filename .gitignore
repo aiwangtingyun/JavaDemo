@@ -3,4 +3,5 @@ foundation/target/*
 jdbc/target/*
 redis/target/*
 springboot/target/*
+activemq/target/*
 .idea/workspace.xml
