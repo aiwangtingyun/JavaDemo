@@ -85,11 +85,21 @@ public class JmsConsumer {
                 if (null != message && message instanceof TextMessage) {
                     TextMessage textMessage = (TextMessage) message;
                     try {
-                        System.out.println("消费者接收到的消息 ====> " + textMessage.getText());
+                        System.out.println("消费者接收到的消息 : textMessage ---> " + textMessage.getText());
+                        System.out.println("Message type : " + textMessage.getStringProperty("type"));
                     } catch (JMSException e) {
                         e.printStackTrace();
                     }
                 }
+                /*if (null != message && message instanceof MapMessage) {
+                    MapMessage mapMessage = (MapMessage) message;
+                    try {
+                        System.out.println("消费者接收到的消息 : mapMessage ---> " + mapMessage.getString("key"));
+                        System.out.println("Message type : " + mapMessage.getStringProperty("type"));
+                    } catch (JMSException e) {
+                        e.printStackTrace();
+                    }
+                }*/
             }
         });
         System.in.read();   // 阻塞等待

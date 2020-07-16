@@ -31,9 +31,16 @@ public class JmsProducer {
         // 6、通过生产者生产消息到 MQ 的队列里面
         for (int i = 0; i < 6; i++) {
             // 7、创建指定格式的消息
-            TextMessage textMessage = session.createTextMessage("message ====> " + i);
+            TextMessage textMessage = session.createTextMessage("message " + i);
+            textMessage.setStringProperty("type", "text message");
             // 8、通过 messageProducer 发送消息给 mq
             messageProducer.send(textMessage);
+
+            // map 消息
+            /*MapMessage mapMessage = session.createMapMessage();
+            mapMessage.setString("key", "value " + i);
+            mapMessage.setStringProperty("type", "map message");
+            messageProducer.send(mapMessage);*/
         }
 
         // 9、关闭资源
