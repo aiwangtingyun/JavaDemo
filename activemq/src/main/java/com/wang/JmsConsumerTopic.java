@@ -9,7 +9,7 @@ import java.io.IOException;
 public class JmsConsumerTopic {
 
     public static final String ACTIVEMQ_URL = "tcp://localhost:61616";
-    public static final String TOPIC_NAME = "wang-topic";
+    public static final String TOPIC_NAME = "my-topic";
 
     @Test
     public void consumer1() throws JMSException, IOException {
@@ -26,7 +26,7 @@ public class JmsConsumerTopic {
         // 3、创建会话 session，第一个参数叫事务，第二个叫签收
         Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 
-        // 4、创建目的地：队列还是主题 topic
+        // 4、创建目的地为主题 topic
         Topic topic = session.createTopic(TOPIC_NAME);
 
         // 5、创建消息的消费者

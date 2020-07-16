@@ -27,6 +27,8 @@ public class JmsProducer {
 
         // 5、创建消息的生产者
         MessageProducer messageProducer = session.createProducer(queue);
+        // 设置消息为持久化，默认也是持久化的
+        messageProducer.setDeliveryMode(DeliveryMode.PERSISTENT);
 
         // 6、通过生产者生产消息到 MQ 的队列里面
         for (int i = 0; i < 6; i++) {

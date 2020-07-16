@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import javax.jms.*;
 
-public class JmsProducerTopic {
+public class JmsProducerTopicPersist {
 
     public static final String ACTIVEMQ_URL = "tcp://localhost:61616";
     public static final String TOPIC_NAME = "my-topic";
@@ -17,16 +17,19 @@ public class JmsProducerTopic {
 
         // 2、连接连接工厂获得 connect 连接池并启动访问
         Connection connection = activeMQConnectionFactory.createConnection();
-        connection.start();
 
         // 3、创建会话 session，第一个参数叫事务，第二个叫签收
         Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 
-        // 4、创建目的地为主题 topic
+        // 4、创建主题 topic 目的地
         Topic topic = session.createTopic(TOPIC_NAME);
 
-        // 5、创建消息的生产者
+        // 5、创建持久化的消息生产者
         MessageProducer messageProducer = session.createProducer(topic);
+        messageProducer.setDeliveryMode(DeliveryMode.PERSISTENT);
+
+        // 设置完持久化后才可以开启
+        connection.start();
 
         // 6、通过生产者生产消息到 MQ 的队列里面
         for (int i = 0; i < 6; i++) {
