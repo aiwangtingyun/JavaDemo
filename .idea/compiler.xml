@@ -8,9 +8,10 @@
         <outputRelativeToContentRoot value="true" />
         <module name="redis" />
         <module name="springboot" />
-        <module name="activemq" />
         <module name="foundation" />
         <module name="jdbc" />
+        <module name="spring_activemq" />
+        <module name="activemq" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
@@ -19,6 +20,7 @@
       <module name="jdbc" target="1.8" />
       <module name="MavenSpring" target="1.8" />
       <module name="redis" target="1.8" />
+      <module name="spring_activemq" target="1.8" />
       <module name="springboot" target="1.8" />
     </bytecodeTargetLevel>
   </component>
