@@ -5,4 +5,5 @@ redis/target/*
 springboot/target/*
 activemq/target/*
 spring_activemq/target/*
+boot_activemq/target/*
 .idea/workspace.xml

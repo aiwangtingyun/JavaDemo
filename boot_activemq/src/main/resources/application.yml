@@ -1,0 +1,13 @@
+server:
+  port: 7777
+
+spring:
+  activemq:
+    broker-url: tcp://127.0.0.1:61616/  # MQ 服务地址端口
+    user: admin
+    password: admin
+  jms:
+    pub-sub-domain: false # 是否为主题模式：false 为 queue, true 为 topic
+
+# 定义自己的队列名称
+myqueue: boot-activemq-queue

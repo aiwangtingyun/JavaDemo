@@ -8,8 +8,10 @@ import java.io.IOException;
 
 public class JmsConsumer {
 
-    public static final String ACTIVEMQ_URL = "tcp://localhost:61616";
-    public static final String QUEUE_NAME = "queue01";
+    /*public static final String ACTIVEMQ_URL = "tcp://localhost:61616";
+    public static final String QUEUE_NAME = "queue01";*/
+    public static final String ACTIVEMQ_URL = "tcp://localhost:61608";
+    public static final String QUEUE_NAME = "autonio";
 
     /**
      * 多消费者问题：
@@ -19,7 +21,7 @@ public class JmsConsumer {
      *          结果：两个消费者一人一半
      */
     @Test
-    public void consumer1() throws JMSException, IOException {
+    public void consumer1() throws JMSException {
 
         System.out.println(">>> 我是1号消费者");
 

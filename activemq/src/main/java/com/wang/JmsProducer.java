@@ -7,8 +7,10 @@ import javax.jms.*;
 
 public class JmsProducer {
 
-    public static final String ACTIVEMQ_URL = "tcp://localhost:61616";
-    public static final String QUEUE_NAME = "queue01";
+    /*public static final String ACTIVEMQ_URL = "tcp://localhost:61616";
+    public static final String QUEUE_NAME = "queue01";*/
+    public static final String ACTIVEMQ_URL = "tcp://localhost:61608";
+    public static final String QUEUE_NAME = "autonio";
 
     @Test
     public void producer() throws JMSException {

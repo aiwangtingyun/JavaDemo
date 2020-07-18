@@ -9,6 +9,7 @@
         <module name="redis" />
         <module name="springboot" />
         <module name="foundation" />
+        <module name="boot_activemq" />
         <module name="jdbc" />
         <module name="spring_activemq" />
         <module name="activemq" />
@@ -16,6 +17,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
       <module name="activemq" target="1.8" />
+      <module name="boot_activemq" target="1.8" />
       <module name="foundation" target="1.8" />
       <module name="jdbc" target="1.8" />
       <module name="MavenSpring" target="1.8" />
@@ -26,6 +28,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="boot_activemq" options="-parameters" />
       <module name="springboot" options="-parameters" />
     </option>
   </component>
