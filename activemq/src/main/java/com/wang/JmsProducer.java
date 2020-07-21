@@ -33,7 +33,7 @@ public class JmsProducer {
         messageProducer.setDeliveryMode(DeliveryMode.PERSISTENT);
 
         // 6、通过生产者生产消息到 MQ 的队列里面
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 3; i++) {
             // 7、创建指定格式的消息
             TextMessage textMessage = session.createTextMessage("message " + i);
             textMessage.setStringProperty("type", "text message");
