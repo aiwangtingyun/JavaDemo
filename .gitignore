@@ -6,4 +6,5 @@ springboot/target/*
 activemq/target/*
 spring_activemq/target/*
 boot_activemq/target/*
+mybatis_plus/target/*
 .idea/workspace.xml
