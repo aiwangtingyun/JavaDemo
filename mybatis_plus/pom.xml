@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.wang</groupId>
-    <artifactId>mybatis_plus_demo</artifactId>
+    <artifactId>mybatis_plus</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>mybatis_plus_demo</name>
+    <name>mybatis_plus</name>
     <description>Demo project for Mybatis Plus</description>
 
     <properties>

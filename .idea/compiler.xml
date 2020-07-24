@@ -2,18 +2,19 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="redis" />
-        <module name="mybatis_plus" />
+        <module name="boot_activemq" />
         <module name="springboot" />
         <module name="foundation" />
-        <module name="boot_activemq" />
-        <module name="jdbc" />
-        <module name="spring_activemq" />
+        <module name="mybatis_plus" />
         <module name="activemq" />
+        <module name="spring_activemq" />
+        <module name="jdbc" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
