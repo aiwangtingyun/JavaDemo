@@ -1,5 +1,7 @@
 package com.wang.mybatisplus;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.wang.mybatisplus.entity.User;
@@ -187,5 +189,65 @@ public class MybatisPlusApplicationTests {
     public void testLogicDeleteSelect() {
         List<User> userList = userMapper.selectList(null);
         userList.forEach(System.out::println);
+    }
+
+    // 测试性能插件
+    @Test
+    public void testPerformance() {
+        User user = new User();
+        user.setName("wang");
+        user.setAge(24);
+        user.setEmail("andy@google.com");
+        userMapper.insert(user);
+    }
+
+    @Test
+    public void testWrapperDelete() {
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("name", "wang")
+                    .lt("age", 23)
+                    .isNotNull("email");
+        int result = userMapper.delete(queryWrapper);
+        System.out.println("delete row count : " + result);
+    }
+
+    @Test
+    public void testWrapperQuery() {
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.gt("age", 20);
+        List<User> userList = userMapper.selectList(queryWrapper);
+        userList.forEach(System.out::println);
+    }
+
+    @Test
+    public void testWrapperBetween() {
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.between("age", 18, 24);
+        List<User> userList = userMapper.selectList(queryWrapper);
+        userList.forEach(System.out::println);
+    }
+
+    @Test
+    public void testSelectMaps() {
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.notLike("name", "e")
+                    .likeRight("email", "t");
+        List<Map<String, Object>> maps = userMapper.selectMaps(queryWrapper);//返回值是Map列表
+        maps.forEach(System.out::println);
+    }
+
+    @Test
+    public void testWrapperSet() {
+        // 修改值
+        User user = new User();
+        user.setAge(19);
+
+        // 修改条件
+        UpdateWrapper<User> updateWrapper = new UpdateWrapper<>();
+        updateWrapper.likeRight("name", "wa")
+                     .set("name", "Bob")                // 使用set设置修改的字段
+                     .setSql("email = 'bob@163.com'");  // 子查询
+
+        int result = userMapper.update(user, updateWrapper);
     }
 }
