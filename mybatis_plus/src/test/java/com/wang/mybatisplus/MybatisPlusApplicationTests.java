@@ -174,4 +174,18 @@ public class MybatisPlusApplicationTests {
         int result = userMapper.deleteByMap(map);
         System.out.println(result);
     }
+
+    // 测试逻辑删除
+    @Test
+    public void testLogicDelete() {
+        int result = userMapper.deleteById(1L);
+        System.out.println(result);
+    }
+
+    // 测试逻辑删除后的查询：不包括被逻辑删除的记录
+    @Test
+    public void testLogicDeleteSelect() {
+        List<User> userList = userMapper.selectList(null);
+        userList.forEach(System.out::println);
+    }
 }

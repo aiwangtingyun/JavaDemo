@@ -29,4 +29,9 @@ public class User {
     @TableField(fill = FieldFill.INSERT)
     private Integer version;
 
+    // 代表逻辑删除字段
+    @TableLogic(value = "0", delval = "1")
+    @TableField(fill = FieldFill.INSERT)
+    private Integer deleted;
+
 }
